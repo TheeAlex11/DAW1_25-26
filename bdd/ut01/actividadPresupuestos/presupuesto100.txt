@@ -1,0 +1,37 @@
+Stock Básico - Supermercado
+
+1. Frutas y Verduras
+   - Manzanas: 50 kg | Coste: 1€/kg | Venta: 2€/kg
+   - Plátanos: 40 kg | Coste: 0,8€/kg | Venta: 1,5€/kg
+   - Tomates: 30 kg | Coste: 1,2€/kg | Venta: 2,5€/kg
+   - Lechugas: 20 unidades | Coste: 0,5€ | Venta: 1€
+
+2. Lácteos
+   - Leche 1L: 60 unidades | Coste: 0,8€ | Venta: 1,5€
+   - Yogur natural: 40 unidades | Coste: 0,6€ | Venta: 1,2€
+   - Queso en lonchas: 25 unidades | Coste: 2€ | Venta: 3,5€
+
+3. Panadería
+   - Pan integral: 50 unidades | Coste: 0,5€ | Venta: 1€
+   - Bollería variada: 30 unidades | Coste: 0,4€ | Venta: 0,8€
+   - Baguettes: 20 unidades | Coste: 0,7€ | Venta: 1,2€
+
+4. Bebidas
+   - Agua 1,5L: 60 unidades | Coste: 0,3€ | Venta: 0,7€
+   - Refrescos 2L: 40 unidades | Coste: 1€ | Venta: 1,8€
+   - Zumo natural 1L: 30 unidades | Coste: 1,2€ | Venta: 2,2€
+
+5. Carnes y Pescados
+   - Pollo fresco (kg): 25 kg | Coste: 3€/kg | Venta: 5€/kg
+   - Carne de res (kg): 20 kg | Coste: 5€/kg | Venta: 8€/kg
+   - Filetes de pescado: 15 kg | Coste: 4€/kg | Venta: 7€/kg
+
+6. Snacks y Dulces
+   - Patatas fritas: 40 unidades | Coste: 1€ | Venta: 2€
+   - Chocolate: 30 unidades | Coste: 1,5€ | Venta: 3€
+   - Galletas: 25 unidades | Coste: 1€ | Venta: 2€
+
+7. Higiene y Limpieza
+   - Papel higiénico (pack 6): 20 unidades | Coste: 2€ | Venta: 3,5€
+   - Jabón líquido: 15 unidades | Coste: 1,5€ | Venta: 3€
+   - Detergente: 10 unidades | Coste: 3€ | Venta: 5€
