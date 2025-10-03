@@ -8,6 +8,6 @@ public class divisible {
 		esDivisible = resto == 0;
 		
 		System.out.println(esDivisible);
-        
+
     }
 }
