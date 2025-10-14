@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://apuntes.luisferreira.top/lmsgi/T2/default.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../assets/Style.css" media="screen" /> <!-- Lo he añadido para facilitarme el trabajo de forma visual -->
+    <title>StreetLine Custom Bodykits | Formulario Contacto</title>
+</head>
+<body>
+    <section>	<!-- Seccion cabecera -->
+		<nav>
+			<ul>
+				<li><a href="../index.html">Inicio</a></li>
+				<li><a href="./tabla.html">Piezas</a></li>
+				<li><a href="./formulario.html">Contacto</a></li>
+			</ul>
+		</nav>
+
+        <header>
+            <h2>🗒️| StreetLine Custom Bodykits - Formulario de Contacto</h2>
+        </header>
+	</section>
+    
+
+    <section>
+        <main>
+            <form action="https://lmsgi.luisferreira.top/recibe_formulario.php" method="get">
+
+                <label>Nombre completo</label>
+                <input type="text" name="nombre" required maxlength="50" placeholder="Nombre completo" autofocus>
+                <br>
+
+                <label>Ciudad</label>
+                <input type="text" name="ciudad" value="Badajoz" size="30">
+                <br>
+
+                <label>Tipo de coche</label>
+                <input type="radio" name="vehiculo" value="sedan" checked> Sedán
+                <input type="radio" name="vehiculo" value="coupe"> Coupé
+                <input type="radio" name="vehiculo" value="pickup"> Pickup
+                <br>
+
+                <label>Contraseña de cliente</label>
+                <input type="password" name="password" required>
+                <br>
+
+                <label>Año del coche</label>
+                <input type="number" name="anio" min="1990" max="2025" step="1" required>
+                <br>
+
+                <label>Fecha de preferencia para cita</label>
+                <input type="date" name="fecha" required>
+                <br>
+
+                <label>Hora de preferencia para cita</label>
+                <input type="time" name="hora">
+                <br>
+
+                <label>Color de bodykit</label>
+                <input type="color" name="color">
+                <br>
+
+                <label>Presupuesto estimado (EUROS)</label>
+                <input type="range" name="presupuesto" min="500" max="10000" step="500" value="3000">
+                <br>
+
+                <input type="hidden" name="magia" value="UTF-8">
+                <br>
+
+                <label>Descripción del proyecto</label>
+                <textarea name="descripcion" rows="4" placeholder="Describe qué tipo de bodykit deseas"></textarea>
+                <br>
+
+                <label>Marca de coche</label>
+                <select name="marca">
+                <option selected disabled>Selecciona una marca</option>
+                <option>Toyota</option>
+                <option>Nissan</option>
+                <option>BMW</option>
+                <option>Honda</option>
+                <option>Ford</option>
+                </select>
+                <br>
+
+                <label>Servicios adicionales</label>
+                <select name="servicios" multiple size="4">
+                <option>Instalación completa</option>
+                <option>Vinilo personalizado</option>
+                <option>Iluminación LED</option>
+                <option>Interior tuning</option>
+                </select>
+                <br>
+
+                <label>
+                <input type="checkbox" name="spam" checked> Deseo recibir noticias y promociones
+                </label>
+                <br>
+
+                <button type="reset">Restablecer</button>
+                <button type="submit">Enviar</button>
+            </form>
+        </main>
+    </section>
+
+    <footer>
+        <h3>2025&copy; Alejandro Bautista Jorge</h3>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+* {
+    font-family: Cascadia Code, Arial, Helvetica, sans-serif;
+}
+
+li {
+    padding: 5px;
+}
+
+td {
+    border: 1px dotted;
+}
