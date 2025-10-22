@@ -2,7 +2,6 @@ import java.time.*;
 import java.time.format.*;
 import java.util.Locale;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class ejerFechas {
     public static void main(String[] args) {
@@ -117,21 +116,6 @@ public class ejerFechas {
         LocalTime h2 = LocalTime.parse("11:40");
         long minutos = Duration.between(h1, h2).toMinutes();
         System.out.println("Entre " + h1 + " y " + h2 + " hay " + minutos + " minutos.");
-        System.out.println();
-
-        // 13. Listar todas las fechas de un mes
-        System.out.println("=== 13. Listar todas las fechas de un mes ===");
-        System.out.print("Introduce un año: ");
-        int anyoLista = teclado.nextInt();
-        System.out.print("Introduce un mes (1-12): ");
-        int mesLista = teclado.nextInt();
-
-        LocalDate inicioMes = LocalDate.of(anyoLista, mesLista, 1);
-        DateTimeFormatter formatoLista = DateTimeFormatter.ofPattern("EEE dd/MM", new Locale("es", "ES"));
-        String fechasMes = inicioMes.datesUntil(inicioMes.plusMonths(1))
-                .map(f -> f.format(formatoLista))
-                .collect(Collectors.joining(", "));
-        System.out.println(fechasMes);
         System.out.println();
 
         // 14. Validar horario comercial
