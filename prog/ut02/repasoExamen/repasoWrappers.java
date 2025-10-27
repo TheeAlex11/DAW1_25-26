@@ -1,8 +1,8 @@
 public class repasoWrappers {
     public static void main(String[] args) {
         // Correspondencia de primitivo a Wrapper
-        Integer.MAX_VALUE = 2147483647;
-        Integer.MIN_VALUE = -2147483648;
+        Integer integerMaxValue = Integer.MAX_VALUE;
+        Integer integerMinValue = Integer.MIN_VALUE;
 
         int primerInt = 10;
         Integer integerWrapper = Integer.valueOf(primerInt);
@@ -29,9 +29,9 @@ public class repasoWrappers {
         String doubleComoString = doubleWrapper.toString();
 
         // --------------------- Clase Float  --------------------------------//
-        Float.MAX_VALUE = 3.4028235e+38f;
-        Float.MIN_VALUE = 1.4e-45f;
-       
+        Float constanteMaximo = Float.MAX_VALUE;
+        Float constanteMinimo = Float.MIN_VALUE;
+
         float wrapperPrimitivo = 15.5f;
         Float floatWrapper = Float.valueOf(wrapperPrimitivo);
 
@@ -75,9 +75,9 @@ public class repasoWrappers {
         int comparacionDouble = d1.compareTo(d2); // Devuelve un valor negativo
         
         // ----------------------------- Clase Boolean  --------------------------------//
-        Boolean.TRUE = true;
-        Boolean.FALSE = false;
-        
+        Boolean booleanConstante1 = Boolean.TRUE;
+        Boolean booleanConstante2 = Boolean.FALSE;
+
         Boolean boolWrapper = Boolean.valueOf(true);
         String stringBool = "false";
         Boolean boolFromString = Boolean.valueOf(stringBool);
