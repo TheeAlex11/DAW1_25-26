@@ -1,6 +1,6 @@
 import java.util.Scanner; // Importar la clase Scanner
 
-public class ejerUno {
+public class ejerEntradaSalida {
     public static void main(String[] args) {
         // Declarar el Scanner
         Scanner sc = new Scanner(System.in);
