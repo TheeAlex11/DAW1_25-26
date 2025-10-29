@@ -37,19 +37,21 @@
       <img src="./assets/media/bg.png" alt="Imagen de un coche de noche que representa el fondo.">
     </div>
     <main>
-      <p>
+      <p id="p1">
         En <strong>StreetLine Custom Bodykits</strong> transformamos coches <em>comunes</em> en verdaderas obras maestras del tuning. 
         Somos especialistas en <code>bodykits personalizados</code>, instalación profesional y acabados de alta calidad 
         que combinan <strong>diseño</strong>, <em>rendimiento</em> y <strong>personalidad</strong>.
       </p>
+      <button onclick="leer('p1')">🔊 Escuchar párrafo 1</button>
 
-      <p>
+      <p id="p2">
         Contamos con un equipo <strong>apasionado</strong> por la cultura automotriz, <small>materiales nunca antes vistos</small> y tecnología de <code>modelado 3D</code> 
         para garantizar el ajuste perfecto en cada proyecto. Ya sea que busques un look <sub>más agresivo</sub>, <sup>elegante</sup> o <em>deportivo</em>, 
         nosotros lo hacemos realidad.
       </p>
+      <button onclick="leer('p2')">🔊 Escuchar párrafo 2</button>
 
-      <p>
+      <p id="p3">
         <strong>Servicios destacados:</strong>
         <ul>
           <li><em>Diseño y fabricación</em> de bodykits exclusivos.</li>
@@ -58,6 +60,11 @@
           <li>Asesoría estética y técnica <small>profesional</small>.</li>
         </ul>
       </p>
+      <button onclick="leer('p3')">🔊 Escuchar párrafo 3</button>
+
+      <br><br>
+      <button onclick="leerTodo()">🔊 Escuchar todo</button>
+      <button onclick="detener()">⏹️ Detener</button>
     </main>
 
     <article id="galeria">
@@ -118,5 +125,33 @@
     </footer>
   </section>
 </section>
+
+<!-- 🔊 Script hecho a partir de la web de https://www.juannicolas.eu/convierte-texto-a-voz-con-javascript/ -->
+<script>
+  function leer(id) {
+    detener();
+    var texto = document.getElementById(id).innerText;
+    var msg = new SpeechSynthesisUtterance(texto);
+    msg.lang = 'es-ES';
+    window.speechSynthesis.speak(msg);
+  }
+
+  function leerTodo() {
+    detener();
+    var texto = '';
+    var parrafos = document.getElementsByTagName('p');
+    for (var i = 0; i < parrafos.length; i++) {
+      texto += parrafos[i].innerText + ' ';
+    }
+    var msg = new SpeechSynthesisUtterance(texto);
+    msg.lang = 'es-ES';
+    window.speechSynthesis.speak(msg);
+  }
+
+  function detener() {
+    window.speechSynthesis.cancel();
+  }
+</script>
+
 </body>
 </html>
