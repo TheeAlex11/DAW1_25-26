@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo ER Hogwarts</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+        }
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ffd700;
+        }
+        .tab {
+            padding: 12px 24px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+            border-radius: 8px 8px 0 0;
+        }
+        .tab:hover {
+            background: rgba(255,215,0,0.2);
+        }
+        .tab.active {
+            background: #ffd700;
+            color: #1a1a2e;
+            font-weight: bold;
+        }
+        .diagram-container {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .diagram-container.active {
+            display: block;
+        }
+        svg {
+            width: 100%;
+            height: auto;
+        }
+        .entity {
+            fill: #4a90e2;
+            stroke: #2c5aa0;
+            stroke-width: 2;
+        }
+        .weak-entity {
+            fill: #4a90e2;
+            stroke: #2c5aa0;
+            stroke-width: 2;
+            stroke-dasharray: 5,5;
+        }
+        .relationship {
+            fill: #50c878;
+            stroke: #2d7a4d;
+            stroke-width: 2;
+        }
+        .attribute {
+            fill: #ffd700;
+            stroke: #cc9900;
+            stroke-width: 1.5;
+        }
+        .text {
+            fill: #1a1a2e;
+            font-size: 14px;
+            font-weight: 600;
+            text-anchor: middle;
+        }
+        .line {
+            stroke: #333;
+            stroke-width: 2;
+            fill: none;
+        }
+        .cardinality {
+            fill: #e74c3c;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .isa-triangle {
+            fill: #9b59b6;
+            stroke: #7d3c98;
+            stroke-width: 2;
+        }
+        .legend {
+            background: rgba(255,255,255,0.95);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            color: #1a1a2e;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+        }
+        .legend-symbol {
+            width: 40px;
+            height: 25px;
+            border: 2px solid #333;
+        }
+        .relational-table {
+            background: white;
+            color: #1a1a2e;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .table-name {
+            background: #4a90e2;
+            color: white;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .table-content {
+            padding: 15px;
+        }
+        .field {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            font-family: 'Courier New', monospace;
+        }
+        .field:last-child {
+            border-bottom: none;
+        }
+        .pk {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .fk {
+            color: #3498db;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏰 Base de Datos de Hogwarts - Modelo Entidad-Relación</h1>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showDiagram('er-basico')">1. ER Básico</button>
+            <button class="tab" onclick="showDiagram('er-extendido')">2. ER Extendido</button>
+            <button class="tab" onclick="showDiagram('relacional')">3. Modelo Relacional</button>
+        </div>
+
+        <!-- ER BÁSICO -->
+        <div id="er-basico" class="diagram-container active">
+            <svg viewBox="0 0 1200 900">
+                <!-- PERSONA -->
+                <rect x="500" y="50" width="200" height="80" class="entity"/>
+                <text x="600" y="95" class="text">PERSONA</text>
+                
+                <!-- Atributos de PERSONA -->
+                <ellipse cx="400" cy="60" rx="50" ry="25" class="attribute"/>
+                <text x="400" y="67" class="text" style="font-size:12px">DNI</text>
+                <line x1="450" y1="60" x2="500" y2="70" class="line"/>
+                
+                <ellipse cx="400" cy="110" rx="60" ry="25" class="attribute"/>
+                <text x="400" y="117" class="text" style="font-size:12px">Nombre</text>
+                <line x1="460" y1="110" x2="500" y2="100" class="line"/>
+                
+                <ellipse cx="400" cy="160" rx="60" ry="25" class="attribute"/>
+                <text x="400" y="167" class="text" style="font-size:12px">Apellidos</text>
+                <line x1="460" y1="150" x2="500" y2="120" class="line"/>
+                
+                <!-- Triángulo ISA -->
+                <path d="M 600,130 L 530,200 L 670,200 Z" class="isa-triangle"/>
+                <text x="600" y="175" class="text" style="fill:white; font-size:16px">d, t</text>
+                
+                <!-- PROFESOR -->
+                <rect x="350" y="250" width="150" height="70" class="entity"/>
+                <text x="425" y="290" class="text">PROFESOR</text>
+                
+                <ellipse cx="280" cy="285" rx="50" ry="25" class="attribute"/>
+                <text x="280" y="292" class="text" style="font-size:12px">Varita</text>
+                <line x1="330" y1="285" x2="350" y2="285" class="line"/>
+                
+                <line x1="425" y1="250" x2="560" y2="200" class="line"/>
+                
+                <!-- ALUMNO -->
+                <rect x="600" y="250" width="150" height="70" class="entity"/>
+                <text x="675" y="290" class="text">ALUMNO</text>
+                <line x1="675" y1="250" x2="640" y2="200" class="line"/>
+                
+                <!-- IMPARTE_CLASE -->
+                <path d="M 500,400 L 540,430 L 500,460 L 460,430 Z" class="relationship"/>
+                <text x="500" y="425" class="text" style="font-size:12px">IMPARTE</text>
+                <text x="500" y="440" class="text" style="font-size:12px">CLASE</text>
+                
+                <line x1="425" y1="320" x2="480" y2="415" class="line"/>
+                <line x1="675" y1="320" x2="530" y2="415" class="line"/>
+                
+                <text x="450" y="370" class="cardinality">(0,N)</text>
+                <text x="640" y="370" class="cardinality">(1,N)</text>
+                
+                <ellipse cx="580" cy="480" rx="80" ry="25" class="attribute"/>
+                <text x="580" y="487" class="text" style="font-size:11px">Observaciones</text>
+                <line x1="540" y1="450" x2="560" y2="465" class="line"/>
+                
+                <!-- CASA -->
+                <rect x="850" y="250" width="150" height="70" class="entity"/>
+                <text x="925" y="290" class="text">CASA</text>
+                
+                <ellipse cx="1050" cy="260" rx="70" ry="25" class="attribute"/>
+                <text x="1050" y="267" class="text" style="font-size:11px">Código_Casa</text>
+                <line x1="1000" y1="265" x2="1000" y2="265" class="line"/>
+                
+                <ellipse cx="1050" cy="310" rx="80" ry="25" class="attribute"/>
+                <text x="1050" y="317" class="text" style="font-size:11px">Nombre_Casa</text>
+                <line x1="1000" y1="300" x2="1000" y2="300" class="line"/>
+                
+                <!-- PERTENECE -->
+                <path d="M 770,285 L 810,305 L 770,325 L 730,305 Z" class="relationship"/>
+                <text x="770" y="300" class="text" style="font-size:11px">PERTENECE</text>
+                <text x="770" y="315" class="text" style="font-size:11px">A</text>
+                
+                <line x1="750" y1="285" x2="770" y2="295" class="line"/>
+                <line x1="810" y1="285" x2="850" y2="285" class="line"/>
+                
+                <text x="780" y="275" class="cardinality">(1,1)</text>
+                <text x="820" y="275" class="cardinality">(1,N)</text>
+                
+                <!-- ES_TUTOR -->
+                <path d="M 600,400 L 640,430 L 600,460 L 560,430 Z" class="relationship"/>
+                <text x="600" y="425" class="text" style="font-size:11px">ES</text>
+                <text x="600" y="440" class="text" style="font-size:11px">TUTOR</text>
+                
+                <line x1="475" y1="320" x2="575" y2="415" class="line"/>
+                <line x1="925" y1="320" x2="625" y2="425" class="line"/>
+                
+                <text x="520" y="370" class="cardinality">(0,1)</text>
+                <text x="820" y="370" class="cardinality">(1,1)</text>
+                
+                <!-- GANADOR -->
+                <rect x="850" y="450" width="150" height="80" class="weak-entity"/>
+                <text x="925" y="495" class="text">GANADOR</text>
+                
+                <ellipse cx="1050" cy="460" rx="40" ry="25" class="attribute"/>
+                <text x="1050" y="467" class="text" style="font-size:11px">Año</text>
+                <line x1="1000" y1="465" x2="1020" y2="465" class="line"/>
+                
+                <ellipse cx="1050" cy="505" rx="45" ry="25" class="attribute"/>
+                <text x="1050" y="512" class="text" style="font-size:11px">Puntos</text>
+                <line x1="1000" y1="495" x2="1020" y2="500" class="line"/>
+                
+                <ellipse cx="1050" cy="550" rx="45" ry="25" class="attribute"/>
+                <text x="1050" y="557" class="text" style="font-size:11px">Premio</text>
+                <line x1="1000" y1="520" x2="1020" y2="540" class="line"/>
+                
+                <!-- GANA -->
+                <path d="M 925,360 L 965,390 L 925,420 L 885,390 Z" class="relationship"/>
+                <text x="925" y="395" class="text" style="font-size:11px">GANA</text>
+                
+                <line x1="925" y1="320" x2="925" y2="360" class="line"/>
+                <line x1="925" y1="420" x2="925" y2="450" class="line"/>
+                
+                <text x="940" y="345" class="cardinality">(0,N)</text>
+                <text x="940" y="440" class="cardinality">(1,1)</text>
+                
+                <!-- MORTIFAGO -->
+                <rect x="200" y="450" width="150" height="70" class="entity"/>
+                <text x="275" y="490" class="text">MORTIFAGO</text>
+                
+                <ellipse cx="120" cy="460" rx="70" ry="25" class="attribute"/>
+                <text x="120" y="467" class="text" style="font-size:10px">Código_Preso</text>
+                <line x1="190" y1="465" x2="200" y2="465" class="line"/>
+                
+                <ellipse cx="120" cy="510" rx="65" ry="25" class="attribute"/>
+                <text x="120" y="517" class="text" style="font-size:10px">Años_Preso</text>
+                <line x1="185" y1="505" x2="200" y2="495" class="line"/>
+                
+                <line x1="350" y1="485" x2="380" y2="320" class="line" stroke-dasharray="5,5"/>
+                <text x="300" y="400" class="text" style="fill:#9b59b6">d, p</text>
+            </svg>
+            
+            <div class="legend">
+                <h3 style="margin-top:0">Leyenda:</h3>
+                <div class="legend-item">
+                    <div class="legend-symbol" style="background:#4a90e2"></div>
+                    <span>Entidad fuerte</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-symbol" style="background:#4a90e2; border-style:dashed"></div>
+                    <span>Entidad débil</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-symbol" style="background:#50c878; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)"></div>
+                    <span>Relación</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-symbol" style="background:#ffd700; border-radius:50%"></div>
+                    <span>Atributo</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-symbol" style="background:#9b59b6; clip-path: polygon(50% 0%, 0% 100%, 100% 100%)"></div>
+                    <span>Jerarquía ISA (d=disjunta, t=total, p=parcial)</span>
+                </div>
+                <div class="legend-item">
+                    <span style="color:#e74c3c; font-weight:bold">(min, max)</span>
+                    <span>Cardinalidad: participación mínima y máxima</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ER EXTENDIDO -->
+        <div id="er-extendido" class="diagram-container">
+            <h2 style="color:#1a1a2e; text-align:center">Modelo ER Extendido con Jerarquías y Restricciones</h2>
+            <svg viewBox="0 0 1200 800">
+                <!-- Similar estructura pero con más detalles de restricciones -->
+                <rect x="500" y="50" width="200" height="80" class="entity"/>
+                <text x="600" y="85" class="text">PERSONA</text>
+                <text x="600" y="105" class="text" style="font-size:11px; fill:#666">(Superclase)</text>
+                
+                <path d="M 600,130 L 530,200 L 670,200 Z" class="isa-triangle"/>
+                <text x="600" y="165" class="text" style="fill:white; font-size:14px">ISA</text>
+                <text x="600" y="185" class="text" style="fill:white; font-size:12px">Exclusiva</text>
+                <text x="600" y="198" class="text" style="fill:white; font-size:12px">Total</text>
+                
+                <rect x="350" y="250" width="150" height="70" class="entity"/>
+                <text x="425" y="285" class="text">PROFESOR</text>
+                <text x="425" y="305" class="text" style="font-size:10px; fill:#666">+ varita</text>
+                <line x1="425" y1="250" x2="560" y2="200" class="line"/>
+                
+                <rect x="600" y="250" width="150" height="70" class="entity"/>
+                <text x="675" y="285" class="text">ALUMNO</text>
+                <text x="675" y="305" class="text" style="font-size:10px; fill:#666">(hereda atributos)</text>
+                <line x1="675" y1="250" x2="640" y2="200" class="line"/>
+                
+                <!-- Segunda jerarquía: Profesor -> Mortífago -->
+                <path d="M 300,370 L 250,420 L 350,420 Z" class="isa-triangle"/>
+                <text x="300" y="400" class="text" style="fill:white; font-size:12px">ISA</text>
+                <text x="300" y="413" class="text" style="fill:white; font-size:10px">Exclusiva</text>
+                
+                <line x1="380" y1="320" x2="320" y2="370" class="line"/>
+                
+                <rect x="200" y="450" width="180" height="80" class="entity"/>
+                <text x="290" y="485" class="text">MORTIFAGO</text>
+                <text x="290" y="502" class="text" style="font-size:10px; fill:#666">+ código_preso</text>
+                <text x="290" y="517" class="text" style="font-size:10px; fill:#666">+ años_preso</text>
+                <line x1="290" y1="450" x2="300" y2="420" class="line"/>
+                
+                <!-- Restricciones textuales -->
+                <rect x="50" y="600" width="500" height="180" style="fill:#fff3cd; stroke:#856404; stroke-width:2"/>
+                <text x="300" y="625" class="text" style="font-size:16px; fill:#856404">⚠️ RESTRICCIONES DEL MODELO</text>
+                <text x="70" y="655" style="fill:#856404; font-size:13px">• Toda PERSONA es PROFESOR o ALUMNO (cobertura total)</text>
+                <text x="70" y="680" style="fill:#856404; font-size:13px">• Un PROFESOR puede o no ser MORTÍFAGO (parcial)</text>
+                <text x="70" y="705" style="fill:#856404; font-size:13px">• Todo ALUMNO debe pertenecer a exactamente una CASA</text>
+                <text x="70" y="730" style="fill:#856404; font-size:13px">• Toda CASA debe tener un TUTOR (profesor)</text>
+                <text x="70" y="755" style="fill:#856404; font-size:13px">• Todo ALUMNO debe estar en al menos una clase</text>
+                
+                <rect x="650" y="600" width="500" height="180" style="fill:#d1ecf1; stroke:#0c5460; stroke-width:2"/>
+                <text x="900" y="625" class="text" style="font-size:16px; fill:#0c5460">📋 NOTAS DE DISEÑO</text>
+                <text x="670" y="655" style="fill:#0c5460; font-size:13px">• Observaciones: atributo de la relación IMPARTE_CLASE</text>
+                <text x="670" y="680" style="fill:#0c5460; font-size:13px">• GANADOR: entidad débil que depende de CASA</text>
+                <text x="670" y="705" style="fill:#0c5460; font-size:13px">• Clave de GANADOR: (Código_Casa, Año)</text>
+                <text x="670" y="730" style="fill:#0c5460; font-size:13px">• Múltiples casas pueden ganar en el mismo año</text>
+                <text x="670" y="755" style="fill:#0c5460; font-size:13px">• Puede haber profesores sin alumnos asignados</text>
+            </svg>
+        </div>
+
+        <!-- MODELO RELACIONAL -->
+        <div id="relacional" class="diagram-container">
+            <h2 style="color:#1a1a2e; text-align:center">Modelo Relacional - Esquema de Tablas</h2>
+            
+            <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:20px">
+                <div class="relational-table">
+                    <div class="table-name">PERSONA</div>
+                    <div class="table-content">
+                        <div class="field"><span class="pk">DNI</span> VARCHAR(20) PRIMARY KEY</div>
+                        <div class="field">Nombre VARCHAR(100) NOT NULL</div>
+                        <div class="field">Apellidos VARCHAR(150) NOT NULL</div>
+                        <div class="field">Tipo_Persona ENUM('PROFESOR', 'ALUMNO') NOT NULL</div>
+                    </div>
+                </div>
+
+                <div class="relational-table">
+                    <div class="table-name">PROFESOR</div>
+                    <div class="table-content">
+                        <div class="field"><span class="pk">DNI</span> VARCHAR(20) PRIMARY KEY</div>
+                        <div class="field"><span class="fk">DNI</span> FOREIGN KEY → PERSONA(DNI)</div>
+                        <div class="field">Varita VARCHAR(200) NOT NULL</div>
+                        <div class="field">CONSTRAINT: UNIQUE(DNI)</div>
+                    </div>
+                </div>
+
+                <div class="relational-table">
+                    <div class="table-name">ALUMNO</div>
+                    <div class="table-content">
+                        <div class="field"><span class="pk">DNI</span> VARCHAR(20) PRIMARY KEY</div>
+                        <div class="field"><span class="fk">DNI</span> FOREIGN KEY → PERSONA(DNI)</div>
+                        <div class="field"><span class="fk">Código_Casa</span> VARCHAR(10) NOT NULL</div>
+                        <div class="field"><span class="fk">Código_Casa</span> FOREIGN KEY → CASA(Código_Casa)</div>
+                        <div class="field">CONSTRAINT: UNIQUE(DNI)</div>
+                    </div>
+                </div>
+
+                <div class="relational-table">
+                    <div class="table-name">CASA</div>
+                    <div class="table-content">
+                        <div class="field"><span class="pk">Código_Casa</span> VARCHAR(10) PRIMARY KEY</div>
+                        <div class="field">Nombre_Casa VARCHAR(50) NOT NULL</div>
+                        <div class="field"><span class="fk">DNI_Tutor</span> VARCHAR(20) NOT NULL UNIQUE</div>
+                        <div class="field"><span class="fk">DNI_Tutor</span> FOREIGN KEY → PROFESOR(DNI)</div>
+                        <div class="field">CHECK: Nombre_Casa IN ('Gryffindor', 'Slytherin', 'Hufflepuff', 'Ravenclaw')</div>
+                    </div>
+                </div>
+
+                <div class="relational-table">
+                    <div class="table-name">IMPARTE_CLASE</div>
+                    <div class="table-content">
+                        <div class="field"><span class="pk">DNI_Profesor</span> VARCHAR(20)</div>
+                        <div class="field"><span class="pk">DNI_Alumno</span> VARCHAR(20)</div>
+                        <div class="field">PRIMARY KEY (DNI_Profesor, DNI_Alumno)</div>
+                        <div class="field"><span class="fk">DNI_Profesor</span> FOREIGN KEY → PROFESOR(DNI)</div>
+                        <div class="field"><span class="fk">DNI_Alumno</span> FOREIGN KEY → ALUMNO(DNI)</div>
+                        <div class="field">Observaciones TEXT NULL</div>
+                    </div>
+                </div>
+
+                <div class="relational-table">
+                    <div class="table-name">GANADOR</div>
+                    <div class="table-content">
+                        <div class="field"><span class="pk">Código_Casa</span> VARCHAR(10)</div>
+                        <div class="field"><span class="pk">Año</span> INTEGER</div>
+                        <div class="field">PRIMARY KEY (Código_Casa, Año)</div>
+                        <div class="field"><span class="fk">Código_Casa</span> FOREIGN KEY → CASA(Código_Casa)</div>
+                        <div class="field">Puntos INTEGER NOT NULL</div>
+                        <div class="field">Premio VARCHAR(200) NOT NULL</div>
+                        <div class="field">CHECK: Puntos > 0</div>
+                    </div>
+                </div>
+
+                <div class="relational-table">
+                    <div class="table-name">MORTIFAGO</div>
+                    <div class="table-content">
+                        <div class="field"><span class="pk">DNI_Profesor</span> VARCHAR(20) PRIMARY KEY</div>
+                        <div class="field"><span class="fk">DNI_Profesor</span> FOREIGN KEY → PROFESOR(DNI)</div>
+                        <div class="field">Código_Preso VARCHAR(50) NOT NULL UNIQUE</div>
+                        <div class="field">Años_Preso INTEGER NOT NULL</div>
+                        <div class="field">CHECK: Años_Preso > 0</div>
+                        <div class="field">CONSTRAINT: UNIQUE(DNI_Profesor)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="legend" style="margin-top:30px">
+                <h3 style="margin-top:0">📊 Resumen de Integridad Referencial</h3>
+                <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:15px; margin-top:15px">
+                    <div style="background:#f8f9fa; padding:15px; border-radius:5px; border-left:4px solid #e74c3c">
+                        <strong style="color:#e74c3c">Claves Primarias (PK):</strong>
+                        <ul style="margin:10px 0; padding-left:20px; font-size:13px">
+                            <li>PERSONA: DNI</li>
+                            <li>PROFESOR: DNI</li>
+                            <li>ALUMNO: DNI</li>
+                            <li>CASA: Código_Casa</li>
+                            <li>IMPARTE_CLASE: (DNI_Profesor, DNI_Alumno)</li>
+                            <li>GANADOR: (Código_Casa, Año)</li>
+                            <li>MORTIFAGO: DNI_Profesor</li>
+                        </ul>
+                    </div>
+                    <div style="background:#f8f9fa; padding:15px; border-radius:5px; border-left:4px solid #3498db">
+                        <strong style="color:#3498db">Claves Foráneas (FK):</strong>
+                        <ul style="margin:10px 0; padding-left:20px; font-size:13px">
+                            <li>PROFESOR.DNI → PERSONA.DNI</li>
+                            <li>ALUMNO.DNI → PERSONA.DNI</li>
+                            <li>ALUMNO.Código_Casa → CASA.Código_Casa</li>
+                            <li>CASA.DNI_Tutor → PROFESOR.DNI</li>
+                            <li>IMPARTE_CLASE → PROFESOR + ALUMNO</li>
+                            <li>GANADOR.Código_Casa → CASA.Código_Casa</li>
+                            <li>MORTIFAGO.DNI_Profesor → PROFESOR.DNI</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="background:#fff3cd; padding:15px; border-radius:5px; margin-top:15px; border:2px solid #856404">
+                    <strong style="color:#856404">⚠️ Restricciones Críticas de Negocio:</strong>
+                    <ul style="margin:10px 0; padding-left:20px; font-size:13px; color:#856404">
+                        <li><strong>Participación obligatoria de ALUMNO:</strong> Todo alumno debe tener al menos un registro en IMPARTE_CLASE (trigger o constraint)</li>
+                        <li><strong>Tutor único por casa:</strong> CASA.DNI_Tutor es NOT NULL y UNIQUE</li>
+                        <li><strong>Casa obligatoria:</strong> ALUMNO.Código_Casa es NOT NULL</li>
+                        <li><strong>Exclusividad Profesor-Alumno:</strong> Un DNI solo puede existir en PROFESOR o en ALUMNO, no en ambos</li>
+                        <li><strong>Cobertura total:</strong> Todo DNI en PERSONA debe aparecer en PROFESOR o ALUMNO (trigger)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showDiagram(diagramId) {
+            // Ocultar todos los diagramas
+            document.querySelectorAll('.diagram-container').forEach(container => {
+                container.classList.remove('active');
+            });
+            
+            // Desactivar todos los tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activar el diagrama seleccionado
+            document.getElementById(diagramId).classList.add('active');
+            
+            // Activar el tab correspondiente
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
