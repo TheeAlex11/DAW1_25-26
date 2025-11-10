@@ -1,0 +1,5 @@
+1. Compilar
+javac -cp junit-jupiter-api-5.9.2.jar;. ClaseATest.java
+
+2. Ejecutar
+java -jar junit-platform-console-standalone-1.9.2.jar --class-path . --scan-class-path
