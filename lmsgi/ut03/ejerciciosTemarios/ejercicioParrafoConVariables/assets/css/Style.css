@@ -1,0 +1,22 @@
+.azul {
+    background-color: var(--color-azul);
+}
+
+.verde {
+    background-color: var(--color-verde);
+}
+
+.rojo {
+    background-color: var(--color-rojo);
+}
+
+.morado {
+    background-color: var(--color-morado);
+}
+
+:root {
+    --color-azul: blue;
+    --color-verde: green;
+    --color-rojo: red;
+    --color-morado: purple;
+}
