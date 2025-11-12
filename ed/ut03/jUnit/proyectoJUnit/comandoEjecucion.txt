@@ -1,0 +1,20 @@
+⚠️ ES NECESARIO ESTAR EN EL DIRECTORIO "proyectoJUnit" ⚠️
+
+---------------------- COMPILAR -------------------
+jdk-25\bin\javac -d compilados fuentes\calculadoraBasica.java
+
+----------------------- EJECUTAR -------------------
+jdk-25\bin\java -cp  compilados calculadoraBasica
+
+------------------------ TESTS ---------------------
+
+---------------- Compilar Tests ----------------------
+** Sin JDK-25 Instalado internamente **
+jdk-25\bin\javac -cp compilados;test\lib\junit-jupiter-api-5.9.2.jar;test\lib\junit-jupiter-engine-5.9.2.jar;test\lib\junit-platform-console-standalone-1.9.2.jar;. test\calculadoraBasicaTest.java -d test\compilados test\calculadoraBasicaTest.java
+
+** Con JDK-25 Instalado internamente **
+javac -cp compilados;test\lib\junit-jupiter-api-5.9.2.jar;test\lib\junit-jupiter-engine-5.9.2.jar;test\lib\junit-platform-console-standalone-1.9.2.jar;. test\calculadoraBasicaTest.java -d test\compilados test\calculadoraBasicaTest.java
+
+---------------- Ejecutar Tests ---------------------
+2. Ejecutar
+jdk-25\bin\java -jar test\lib\junit-platform-console-standalone-1.9.2.jar -cp compilados;test\compilados --scan-class-path
