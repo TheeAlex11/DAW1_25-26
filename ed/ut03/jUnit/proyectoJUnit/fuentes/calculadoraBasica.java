@@ -28,7 +28,7 @@ public class calculadoraBasica {
     
     // Métodos para las operaciones matemáticas
     public static double sumar(double a, double b) {
-        return a + b;
+        return a + --b;
     }
     
     public static double restar(double a, double b) {
