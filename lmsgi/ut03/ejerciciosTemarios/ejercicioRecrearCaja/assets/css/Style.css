@@ -1,0 +1,55 @@
+* {
+    text-align: center;
+}
+
+:root {
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: gray;
+}
+
+#exterior {
+    width: 400px;
+    padding: 10px;
+    margin: 10px;
+    color: darkgreen;
+    background-color: white;
+    text-align: start;
+}
+
+#borde-ext, #padding, #contenido {
+    color: blue;
+}
+
+#borde-ext, #padding {
+    background-color: white;
+}
+
+#borde-ext {
+    border: 1px dashed black;
+    padding: .5rem 1rem 1rem 1rem;
+}
+
+#contenido {
+    background-color: lightgray;
+    margin-top: .5rem;
+    padding: 1em;
+    border: 2px solid black;
+    height: 200px;
+}
+
+#margen {
+    background-color: white;
+}
+
+#borde {
+    padding: .5rem 1rem 1rem 1rem;
+    margin-top: .5rem;
+    color: white;
+    background-color: green;
+}
+
+#padding {
+    padding: .5rem 1rem 1rem 1rem;
+    margin-top: .5rem;
+}
