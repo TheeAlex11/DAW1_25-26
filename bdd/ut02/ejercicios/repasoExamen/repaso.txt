@@ -1,0 +1,72 @@
+Ejemplo 01. Biblioteca
+
+En una pequeña biblioteca se desea llevar un registro sencillo de los autores y los libros.
+De cada autor debe almacenarse un identificador y su nombre.
+De cada libro es necesario guardar un identificador y su titulo.
+Además cada libro está escrito por un único autor, mientras que un autor puede haber escrito varios libros
+No se necesita registrar mas informacion ni mas relaciones
+
+autor(idAutor, nombre)
+libro(idLibro, titulo, idAutor)
+
+SQL ----
+
+CREATE TABLE AUTOR (
+    id_autor INT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE LIBRO (
+    id_libro INT PRIMARY KEY,
+    titulo VARCHAR(200) NOT NULL,
+    id_autor INT NOT NULL, FOREIGN KEY (id_autor) REFERENCES AUTOR(id_autor)
+);
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Ejemplo 02. Instituto
+
+Un instituto necesita controlar las asignaturas en las que se matriculan sus alumnos.
+De cada alumno se almacena un identificador y su nombre.
+De cada asignatura se registra tambien un identificador y su nombre.
+Un alumno puede matricularse en varias asignaturas y cada asignatura puede tener varios alumnos matriculados.
+Por lo tanto, la relación entre alumnos y asignaturas es de muchos a muchos y debe reflejarse adecuadamente.
+                            N:M
+alumno 1:1 ------------<matriculado>------------- 1:1 asignatura
+
+alumno(idAlumno, nombre)
+matricula(idAlumno,idAsignatura)
+asignatura(idAsignatura, nombre)
+
+-- SQL
+
+CREATE TABLE ALUMNO (
+    id_alumno INT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE ASIGNATURA (
+    id_asignatura PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL;
+);
+
+CREATE TABLE MATRICULA(
+    id_alumno INT NOT NULL,
+    id_asignatura INT NOT NULL,
+    PRIMARY KEY (id_alumno, id_asignatura),
+    FOREIGN KEY (id_alumno) REFERENCES ALUMNO(id_alumno),
+    FOREIGN KEY (id_asignatura) REFERENCES ASIGNATURA(id_asignatura)
+);
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Ejemplo 3. Tienda Online
+
+Una tienda online desea gestionar la informacion relacionada con las ventas que realizada a sus clientes.
+De cada cliente se necesita almacenar un identificador, su nombre, su correo electronico y su direccion.
+La tienda vende productos de los cuales se debe guardar un identificador, nombre, precio y cantidad disponible.
+Los pedidos realizados por los clientes se utilizan unicamente para registrar que productos se han incluido en cada compra, sin guardar cantidades ni precios especificos por producto en el pedido, ya que solo interesa saber que productos han sido incluidos
+De cada pedido se almacena un identificador, la fecha en que se realizó y su estado(Por ejemplo pendiente, enviado o completado)
+Un ciliente puede realizar varios pedidos y cada pedido pertenece a un unico cliente.
+Además un pedido puede incluir varios productos y un producto puede aparecer en varios pedidos.
+
