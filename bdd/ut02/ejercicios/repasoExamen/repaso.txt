@@ -62,11 +62,50 @@ CREATE TABLE MATRICULA(
 
 Ejemplo 3. Tienda Online
 
-Una tienda online desea gestionar la informacion relacionada con las ventas que realizada a sus clientes.
-De cada cliente se necesita almacenar un identificador, su nombre, su correo electronico y su direccion.
-La tienda vende productos de los cuales se debe guardar un identificador, nombre, precio y cantidad disponible.
-Los pedidos realizados por los clientes se utilizan unicamente para registrar que productos se han incluido en cada compra, sin guardar cantidades ni precios especificos por producto en el pedido, ya que solo interesa saber que productos han sido incluidos
-De cada pedido se almacena un identificador, la fecha en que se realizó y su estado(Por ejemplo pendiente, enviado o completado)
-Un ciliente puede realizar varios pedidos y cada pedido pertenece a un unico cliente.
-Además un pedido puede incluir varios productos y un producto puede aparecer en varios pedidos.
+- Una tienda online desea gestionar la informacion relacionada con las ventas que realizada a sus clientes.
 
+- De cada cliente se necesita almacenar un identificador, su nombre, su correo electronico y su direccion.
+
+- La tienda vende productos de los cuales se debe guardar un identificador, nombre, precio y cantidad disponible.
+
+- Los pedidos realizados por los clientes se utilizan unicamente para registrar que productos se han incluido en 
+  cada compra, sin guardar cantidades ni precios especificos por producto en el pedido, ya que solo interesa saber 
+  que productos han sido incluidos.
+
+- De cada pedido se almacena un identificador, la fecha en que se realizó y su estado(Por ejemplo pendiente, enviado o completado)
+
+- Un cliente puede realizar varios pedidos y cada pedido pertenece a un unico cliente.
+
+- Además un pedido puede incluir varios productos y un producto puede aparecer en varios pedidos.
+
+Cliente(idCliente, nombre, correoElectronico, direccion)
+Productos(idProducto, nombre, precio, cantidadDispo)
+Pedidos(idPedidos, fecha, estado, idProducto(FK), idCliente(FK))
+
+        0,N                 1:N                 1,1     1,N                 N:M                     0:N
+CLIENTE ----------------<REALIZA>---------------- PEDIDOS ----------------<SOLICITA>---------------- PRODUCTOS
+
+SQL --
+
+CREATE TABLE CLIENTE (
+    id_cliente
+    nombre
+    email
+    direccion
+)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Ejemplo 04. EMPRESA-RRHH
+
+- Una empresa necesita modelar la información de sus empleados utilizando un esquema basado en la generalización.
+
+- Existe una entiedad principal EMPLEADO, de la cual se desea almacenar un identificador, su nombre, 
+la fecha en la que fue contratado y su salario base
+
+- La empresa distingue dos tipos de empleados: los empleados fijos para quienes se registran su salario mensual y 
+un posible plus por antiguedad y los empleados temporales de los cuales deben conocerse la fecha de inicio y 
+fin del contrato, asi como el precio que cobran por hora trabajada.
+
+- Todo empleado pertenece necesariamente a uno de estos dos tipos(la especialización es exclusiva y total) y 
+cada empleado está asignado a un departamento, del cual se almacena un identificador y un nombre
