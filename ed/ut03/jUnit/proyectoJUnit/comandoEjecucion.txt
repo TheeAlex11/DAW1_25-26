@@ -30,7 +30,7 @@ java -cp compilados calculadoraBasica
 jdk-25\bin\javac -cp compilados;test\lib\junit-jupiter-api-5.9.2.jar;test\lib\junit-jupiter-engine-5.9.2.jar;test\lib\junit-platform-console-standalone-1.9.2.jar;. test\calculadoraBasicaTest.java -d test\compilados test\calculadoraBasicaTest.java
 
 # Windows - Con JDK interno
-javac -cp compilados;test\lib\junit-jupiter-api-5.9.2.jar;test\lib\junit-jupiter-engine-5.9.2.jar;test\lib\junit-platform-console-standalone-1.9.2.jar;. test\calculadoraBasicaTest.java -d test\compilados test\calculadoraBasicaTest.java
+javac -cp compilados;test\lib\junit-jupiter-api-5.9.2.jar;test\lib\junit-jupiter-engine-5.9.2.jar;test\lib\junit-platform-console-standalone-1.9.2.jar;. test\ValidadorClaveTest.java -d test\compilados test\ValidadorClaveTest.java
 
 # Ubuntu 24 - Sin JDK interno
 javac -cp compilados:test/lib/junit-jupiter-api-5.9.2.jar:test/lib/junit-jupiter-engine-5.9.2.jar:test/lib/junit-platform-console-standalone-1.9.2.jar:. test/calculadoraBasicaTest.java -d test/compilados
