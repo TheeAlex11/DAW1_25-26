@@ -1,0 +1,8 @@
+VEHÍCULO(matricula(PK), marca, modelo, cilindrada, potencia, precio_diario, fecha_compra)
+TURISMO(matricula(PK)(FK), num_puertas, tipo)
+FURGONETA(matricula(PK)(FK), metros_cubicos, kilos_carga_maxima)
+CLIENTE(cod_cliente(PK), dni, nombre, apellidos, direccion, localidad, telefono, email)
+ALQUILER(id_alquiler(PK), cod_cliente(FK), matricula(FK), fecha_inicio, num_dias)
+REPARACION(id_reparacion(PK), matricula(FK), fecha, descripcion)
+PIEZA(cod_pieza(PK), nombre, precio_compra)
+REPARACION_PIEZA(id_reparacion(PK)(FK), cod_pieza(PK)(FK), cantidad)
