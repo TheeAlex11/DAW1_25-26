@@ -1,7 +1,16 @@
-
 -- ============================================================================
 -- EJERCICIO 4: GEOGRAFÍA
 -- ============================================================================
+
+-- Modelo relacional
+--
+-- PAIS(Codigo_pais PK, Nombre, Continente, Superficie, Poblacion, Capital)
+-- CIUDAD(Codigo_ciudad PK, Nombre, Codigo_pais FK, Poblacion)
+-- RIO(Codigo_rio PK, Nombre, Longitud, Codigo_pais FK)
+
+-----------------------------------------------------------------------------------------
+-- SQL
+-----------------------------------------------------------------------------------------
 
 -- Tabla PAIS
 CREATE TABLE PAIS (

@@ -1,7 +1,16 @@
-
 -- ============================================================================
 -- EJERCICIO 2: CENTRO MÉDICO
 -- ============================================================================
+
+-- Modelo relacional
+--
+-- MEDICO(Codigo_medico PK, Nombre, Apellidos, Especialidad, Telefono)
+-- PACIENTE(Codigo_paciente PK, Nombre, Apellidos, Direccion, Telefono, Fecha_nacimiento, Numero_seguridad_social)
+-- CONSULTA(Codigo_consulta PK, Codigo_medico FK, Codigo_paciente FK, Fecha_consulta, Diagnostico, Tratamiento)
+
+-----------------------------------------------------------------------------------------
+-- SQL
+-----------------------------------------------------------------------------------------
 
 -- Tabla MEDICO
 CREATE TABLE MEDICO (

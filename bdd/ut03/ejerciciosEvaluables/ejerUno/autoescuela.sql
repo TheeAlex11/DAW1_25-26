@@ -2,6 +2,18 @@
 -- EJERCICIO 1: AUTOESCUELA
 -- ============================================================================
 
+-- Modelo relacional
+--
+-- ALUMNO(Codigo_alumno PK, Nombre, Apellidos, Direccion, Telefono, Fecha_nacimiento)
+-- PROFESOR(Codigo_profesor PK, Nombre, Apellidos, Telefono, Especialidad)
+-- VEHICULO(Matricula PK, Marca, Modelo, Tipo)
+-- CLASE(Codigo_alumno FK->ALUMNO, Codigo_profesor FK->PROFESOR, Matricula FK->VEHICULO,
+-- Fecha, Hora, PK: (Codigo_alumno, Codigo_profesor, Fecha, Hora))
+
+-----------------------------------------------------------------------------------------
+-- SQL
+-----------------------------------------------------------------------------------------
+
 -- Tabla ALUMNO
 CREATE TABLE ALUMNO (
     Codigo_alumno INT PRIMARY KEY,

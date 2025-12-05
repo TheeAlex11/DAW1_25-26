@@ -1,7 +1,16 @@
-
 -- ============================================================================
 -- EJERCICIO 3: SUCURSAL BANCARIA
 -- ============================================================================
+
+-- Modelo relacional
+--
+-- CLIENTE(Codigo_cliente PK, Nombre, Apellidos, DNI, Direccion, Telefono)
+-- CUENTA(Numero_cuenta PK, Codigo_cliente FK, Tipo_cuenta, Saldo, Fecha_apertura)
+-- TRANSACCION(Codigo_transaccion PK, Numero_cuenta FK, Tipo_transaccion, Importe, Fecha_transaccion, Concepto)
+
+-----------------------------------------------------------------------------------------
+-- SQL
+-----------------------------------------------------------------------------------------
 
 -- Tabla CLIENTE
 CREATE TABLE CLIENTE (

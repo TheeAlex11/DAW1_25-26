@@ -1,7 +1,16 @@
-
 -- ============================================================================
 -- EJERCICIO 5: LIGA DE FÚTBOL
 -- ============================================================================
+
+-- Modelo relacional
+--
+-- EQUIPO(Codigo_equipo PK, Nombre, Estadio, Ciudad, Fecha_fundacion)
+-- JUGADOR(Codigo_jugador PK, Nombre, Apellidos, Codigo_equipo FK, Posicion, Fecha_nacimiento, Nacionalidad)
+-- PARTIDO(Codigo_partido PK, Equipo_local FK, Equipo_visitante FK, Fecha_partido, Goles_local, Goles_visitante, Estadio)
+
+-----------------------------------------------------------------------------------------
+-- SQL
+-----------------------------------------------------------------------------------------
 
 -- Tabla EQUIPO
 CREATE TABLE EQUIPO (
