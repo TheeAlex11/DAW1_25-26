@@ -1,0 +1,20 @@
+* {
+    border: 1px solid black;
+    margin: 0;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100dvb;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    width: 80dvi;
+}
+
+header, footer {
+    width: 100dvi;
+}

@@ -1,0 +1,16 @@
+* {
+    border: 1px solid black;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100dvb;
+}
+
+main {
+    align-self: center;
+    width: 80dvi;
+}
