@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/Style.css">
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon"> <!-- Este es el "Favicon" que es la imagen de la pestaña en el navegador -->
+    <title>StreetLine Custom Bodykits | Contacto</title>
+</head>
+<body>
+    <header>
+        <div class="cabecera">
+            <h1><i class="fa-duotone fa-solid fa-comments"></i> Contacto</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="barra-navegacion">
+            <div class="inicio"><a href="index.html"><i class="fa-duotone fa-solid fa-info"></i> Inicio</a></div>
+            <div class="contacto"><a href="contacto.html"><i class="fa-duotone fa-solid fa-comments"></i> Contacto</a></div>
+        </div>
+    </nav>
+    <main>
+        <div class="background_fade"></div>
+            <div class="contenedor-flex">
+                <div class="contenedor-formulario">
+                    <form action="https://lmsgi.luiscastelar.duckdns.org/recibe_formulario.php">
+                        <input type="hidden" name="valor_oculto" value="BodiKits">
+
+                        <p><b>📝 Nombre completo: </b><input type="text" name="nombre" size="18" placeholder="Juan Pérez" autofocus required></p>
+
+                        <p><b>📧 Correo electrónico: </b><input type="email" name="email" size="18" placeholder="ejemplo@gmail.com" required></p>
+
+                        <p><b>📱 Teléfono: </b><input type="text" name="telefono" size="18" maxlength="12" placeholder="123 45 67 89" required></p>
+
+                        <p><b>🚗 Marca del vehículo: </b>
+                            <input type="text" name="marca" list="marcas" required>
+                        </p>
+                        <datalist id="marcas">
+                            <option value="BMW">
+                            <option value="Audi">
+                            <option value="Mercedes-Benz">
+                            <option value="Honda">
+                            <option value="Toyota">
+                            <option value="Volkswagen">
+                            <option value="Seat">
+                            <option value="Ford">
+                            <option value="Nissan">
+                            <option value="Otra">
+                        </datalist>
+
+                        <p><b>🔧 Modelo del vehículo: </b><input type="text" name="modelo" size="18" placeholder="Civic, Golf, Serie 3..." required></p>
+
+                        <p><b>📅 Año del vehículo: </b><input type="number" name="año" min="1990" max="2026" step="1" required></p>
+
+                        <p><b>🎨 Tipo de BodiKit:</b></p>
+                        <select name="tipo_bodikit" required>
+                            <option value="" disabled selected>Selecciona un tipo</option>
+                            <option value="completo">Kit Completo</option>
+                            <option value="deportivo">Kit Deportivo</option>
+                            <option value="elegante">Kit Elegante</option>
+                            <option value="offroad">Kit Off-Road</option>
+                            <option value="piezas">Piezas Individuales</option>
+                        </select>
+
+                        <p><b>🛠️ Material preferido:</b></p>
+                        <select name="material" required>
+                            <option value="" disabled selected>Selecciona un material</option>
+                            <option value="fibra_vidrio">Fibra de Vidrio</option>
+                            <option value="poliuretano">Poliuretano</option>
+                            <option value="fibra_carbono">Fibra de Carbono</option>
+                            <option value="abs_plastico">ABS Plástico</option>
+                        </select>
+
+                        <p class="radio-group">
+                            <b>🔧 ¿Requiere instalación?</b>
+                            <span>
+                                <input type="radio" name="instalacion" value="si" required> Sí
+                            </span>
+                            <span>
+                                <input type="radio" name="instalacion" value="no"> No
+                            </span>
+                        </p>
+
+                        <p><b>💰 Presupuesto estimado (€): </b><input type="number" name="presupuesto" min="0" max="50000" step="100" placeholder="1000"></p>
+
+                        <p><b>🎨 Color preferido del kit: </b><input type="color" name="color_kit"></p>
+
+                        <p><b>📍 Provincia: </b><input type="text" name="provincia" size="18" placeholder="A Coruña" required></p>
+
+                        <p><b>⏰ Fecha preferida para presupuesto: </b><input type="date" name="fecha_presupuesto" required></p>
+
+                        <p><b>🕐 Hora preferida de contacto: </b><input type="time" name="hora_contacto" required></p>
+
+                        <p><b>⭐ Nivel de urgencia: </b><input type="range" name="urgencia" min="0" max="10" step="1"></p>
+
+                        <p><b>❓ Motivo del contacto: </b>
+                            <input type="text" name="motivo" list="motivos" required>
+                        </p>
+                        <datalist id="motivos">
+                            <option value="Solicitar presupuesto">
+                            <option value="Consulta técnica">
+                            <option value="Información sobre instalación">
+                            <option value="Disponibilidad de productos">
+                            <option value="Otro">
+                        </datalist>
+
+                        <p><b>📝 Detalles adicionales o consultas: </b>
+                            <textarea name="observaciones" rows="3" cols="20" placeholder="Especifica cualquier detalle sobre tu vehículo o preferencias..."></textarea>
+                        </p>
+
+                        <p><b>📄 Acepto los términos y condiciones </b><input type="checkbox" name="terminos" required></p>
+
+                        <p><b>📬 Deseo recibir ofertas y novedades </b><input type="checkbox" name="newsletter" checked></p>
+
+                        <p>
+                            <input type="submit" value="Enviar solicitud">
+                            <input type="reset" value="Borrar">
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="pie-pag">
+            <p>© 2026 StreetLine Custom Bodykits. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
