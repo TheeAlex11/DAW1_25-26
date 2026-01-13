@@ -15,6 +15,79 @@
 }
 /* Fin Fuentes */
 
+/* Animaciones Kit de MozillaDeveloper */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-10deg) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+/* Fin Animaciones */
+
 body {
     font-family: BoxedRound, sans-serif;
     color: #CCC;
@@ -47,10 +120,12 @@ header, .cabecera {
     background-color: var(--contenedores);
     width: 100%;
     font-family: BoxedBold, sans-serif;
+    animation: slideInFromTop 0.8s ease-out;
 }
 
 header > .cabecera > h1 {
     padding: .2rem;
+    animation: fadeIn 1s ease-out 0.3s both;
 }
 
 /* Fin cabecera */
@@ -76,6 +151,7 @@ header > .cabecera > h1 {
     background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(0.25em);
     z-index: -1;
+    animation: fadeIn 0.5s ease-out;
 }
 /* Fin Background */
 
@@ -87,6 +163,7 @@ nav {
     padding: 0;
     position: relative;
     z-index: 2;
+    animation: slideInFromTop 1s ease-out 0.2s both;
 }
 
 .barra-navegacion {
@@ -138,6 +215,7 @@ main {
     margin-bottom: 4rem; 
     padding: 1rem; 
     flex: 1;
+    animation: fadeIn 1s ease-out 0.4s both;
 }
 
 .contenedor-flex {
@@ -152,6 +230,7 @@ main {
     margin-top: 0; 
     margin-bottom: 0;
     width: 100%;
+    animation: fadeIn 1.2s ease-out 0.5s both;
 }
 
 .contenedor {
@@ -166,8 +245,16 @@ main {
     z-index: 1;
     overflow: hidden;
     margin: 0.5rem;
+    animation: fadeIn 0.6s ease-out backwards;
     transition: all 0.3s ease;
 }
+
+.contenedor:nth-child(1) { animation-delay: 0.1s; }
+.contenedor:nth-child(2) { animation-delay: 0.2s; }
+.contenedor:nth-child(3) { animation-delay: 0.3s; }
+.contenedor:nth-child(4) { animation-delay: 0.4s; }
+.contenedor:nth-child(5) { animation-delay: 0.5s; }
+.contenedor:nth-child(6) { animation-delay: 0.6s; }
 
 .contenedor:hover {
     transform: translateY(-8px) scale(1.02);
@@ -198,6 +285,7 @@ main {
 
 .cuerpo-contenedor p {
     padding: 1rem;
+    animation: fadeIn 0.8s ease-out backwards;
 }
 
 .cuerpo-contenedor li {
@@ -227,6 +315,7 @@ footer {
     position: fixed; 
     bottom: 0; 
     text-align: center;
+    animation: slideInFromTop 1s ease-out 0.8s both;
 }
 /* Fin pie de pagina */
 
@@ -244,6 +333,7 @@ footer {
     overflow: hidden;
     max-width: 900px; 
     width: 90%;
+    animation: rotateIn 0.8s ease-out;
     transition: transform 0.3s ease;
 }
 
@@ -271,8 +361,15 @@ th {
 }
 
 tbody tr {
+    animation: slideInFromLeft 0.5s ease-out backwards;
     transition: all 0.3s ease;
 }
+
+tbody tr:nth-child(1) { animation-delay: 0.1s; }
+tbody tr:nth-child(2) { animation-delay: 0.2s; }
+tbody tr:nth-child(3) { animation-delay: 0.3s; }
+tbody tr:nth-child(4) { animation-delay: 0.4s; }
+tbody tr:nth-child(5) { animation-delay: 0.5s; }
 
 tbody tr:nth-child(even) {
     background-color: rgba(0, 0, 0, 0.05);
@@ -320,6 +417,7 @@ td {
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
     max-width: 600px;
     width: 90%;
+    animation: fadeIn 1s ease-out;
 }
 
 form {
@@ -337,7 +435,15 @@ form p {
     align-items: center;
     margin: 0;
     font-size: 1rem;
+    animation: slideInFromLeft 0.6s ease-out backwards;
 }
+
+form p:nth-child(1) { animation-delay: 0.1s; }
+form p:nth-child(2) { animation-delay: 0.2s; }
+form p:nth-child(3) { animation-delay: 0.3s; }
+form p:nth-child(4) { animation-delay: 0.4s; }
+form p:nth-child(5) { animation-delay: 0.5s; }
+form p:nth-child(6) { animation-delay: 0.6s; }
 
 .radio-group {
     display: flex;
