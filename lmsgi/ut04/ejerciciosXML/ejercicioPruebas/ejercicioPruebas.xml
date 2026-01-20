@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<biblioteca>
+    <libro>
+        <titulo>La vida está en otra parte</titulo>
+        <autor>Milan Kundera</autor>
+        <fecha-publicacion año="1973"></fecha-publicacion>
+    </libro>
+    <libro>
+        <titulo>Pantaleón y las visitadoras</titulo>
+        <autor fecha-nacimiento="28/03/1936">Mario Vargas Llosa</autor>
+        <fecha-publicacion año="1973"></fecha-publicacion>
+    </libro>
+    <libro>
+        <titulo>Conversación en la catedral</titulo>
+        <autor fecha-nacimiento="28/03/1936">Mario Vargas Llosa</autor>
+        <fecha-publicacion año="1969"></fecha-publicacion>
+    </libro>
+</biblioteca>
