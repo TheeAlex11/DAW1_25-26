@@ -1,0 +1,12 @@
+<!-- Nodo principal -->
+<!ELEMENT biblioteca (libro*, revistas*)>
+<!-- Fin nodo -->
+
+<!-- Inicio elementos y atributos de libro -->
+<!ELEMENT libro (titulo, autor+, fecha-publicacion)>
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT autor (#PCDATA)>
+<!ATTLIST autor fecha-nacimiento CDATA #IMPLIED>
+<!ELEMENT fecha-publicacion EMPTY>
+<!ATTLIST fecha-publicacion año CDATA #REQUIRED>
+<!-- Fin elementos y atributos de libro -->
