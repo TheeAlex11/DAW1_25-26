@@ -3,7 +3,7 @@ public class Facturador{
 	//Repertorio de conciertos del grupo
 	static String[][] repertorio = {
 		 {"Tributo Robe", "heavy"}
-		,{"Homaneje Queen", "pop"}
+		,{"Homanaje Queen", "pop"}
 		,{"Magia Knoppler", "pop"}
 		,{"Demonios Rojos", "heavy"}
 	};
@@ -29,6 +29,11 @@ public class Facturador{
 					importeActuacion = 4000d;
 					if (actuaciones[i][1] > 500)
 						importeActuacion += 20 * (actuaciones[i][1] - 500);
+					break;
+				case "pop":
+					importeActuacion = 3000d;
+					if (actuaciones[i][1] > 1000)
+						importeActuacion += 20 * (actuaciones[i][1] - 1000);
 					break;
 				case "rock":
 					importeActuacion = 3000d;
