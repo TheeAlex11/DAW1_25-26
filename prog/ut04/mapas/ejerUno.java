@@ -16,6 +16,7 @@ public class ejerUno {
         diccionario.put("comida", "food");
         diccionario.put("agua", "water");
         diccionario.put("amigo", "friend");
+        diccionario.put("familia", "family");
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Introduce una palabra en español: ");
