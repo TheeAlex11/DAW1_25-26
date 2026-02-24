@@ -1,0 +1,4 @@
+nombre, apellidos, calificación
+Pepe#Gómez García#5
+Ana#Torres Altas#8
+Miriam#Purificación Gómez#6
