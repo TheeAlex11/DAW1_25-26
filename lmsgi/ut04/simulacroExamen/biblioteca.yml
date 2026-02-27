@@ -1,0 +1,18 @@
+biblioteca:
+  libro:
+    - titulo: "La vida está en otra parte"
+      autor:
+        nombre: "Milan Kundera"
+      fechaPublicacion: &pub_1973
+        anho: "1973"
+
+    - titulo: "Pantaleón y las visitadoras"
+      autor: &vargas_llosa
+        nombre: "Mario Vargas Llosa"
+        fechaNacimiento: "28/03/1936"
+      fechaPublicacion: *pub_1973
+
+    - titulo: "Conversación en la catedral"
+      autor: *vargas_llosa
+      fechaPublicacion:
+        anho: "1969"

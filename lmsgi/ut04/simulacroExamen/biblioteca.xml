@@ -1,0 +1,37 @@
+<?xml versión="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE biblioteca SYSTEM "biblioteca.dtd"> --> Forma externa
+
+<!DOCTYPE biblioteca [
+    <!-- Definimos el elemento raiz -->
+    <!ELEMENT biblioteca (libro*)>
+
+    <!-- Definimos el elemento libro -->
+    <!ELEMENT libro (titulo, autor, fechaPublicacion)>
+
+    <!-- Definimos sus subelementos -->
+    <!ELEMENT titulo (#PCDATA)>
+    <!ELEMENT autor (#PCDATA)>
+    <!ELEMENT fechaPublicacion (#PCDATA)>
+
+    <!-- Definimos los atributos -->
+    <!ATTLIST autor fechaNacimiento CDATA #IMPLIED>
+    <!ATTLIST fechaPublicacion anho CDATA #REQUIRED>
+]>
+
+<biblioteca>
+    <libro>
+        <titulo>La vida está en otra parte</titulo>
+        <autor>Milan Kundera</autor>
+        <fechaPublicacion anho="1973"></fechaPublicacion>
+    </libro>
+    <libro>
+        <titulo>Pantaleón y las visitadoras</titulo>
+        <autor fechaNacimiento="28/03/1936">Mario Vargas Llosa</autor>
+        <fechaPublicacion anho="1973"></fechaPublicacion>
+    </libro>
+    <libro>
+        <titulo>Conversación en la catedral</titulo>
+        <autor fechaNacimiento="28/03/1936">Mario Vargas Llosa</autor>
+        <fechaPublicacion anho="1969"></fechaPublicacion>
+    </libro>
+</biblioteca>

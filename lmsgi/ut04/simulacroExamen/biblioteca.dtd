@@ -1,0 +1,14 @@
+<!-- Definimos el elemento raiz -->
+<!ELEMENT biblioteca (libro*)>
+
+<!-- Definimos el elemento libro -->
+<!ELEMENT libro (titulo, autor, fechaPublicacion)>
+
+<!-- Definimos sus subelementos -->
+<!ELEMENT titulor (#PCDATA)>
+<!ELEMENT autor (#PCDATA)>
+<!ELEMENT fechaPublicacion (#PCDATA)>
+
+<!-- Definimos los atributos -->
+<!ATTLIST autor fechaNacimiento CDATA #IMPLIED>
+<!ATTLIST fechaPublicacion anho CDATA #REQUIRED>
