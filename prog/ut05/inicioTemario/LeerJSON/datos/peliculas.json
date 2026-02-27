@@ -1,0 +1,14 @@
+[
+    {
+        "titulo": "El Padrino",
+        "director": "Francis Ford Coppola",
+        "año": 1972,
+        "duracion": 175
+    },
+    {
+        "titulo": "Pulp Fiction",
+        "director": "Quentin Tarantino",
+        "año": 1994,
+        "duracion": 154
+    }
+]
