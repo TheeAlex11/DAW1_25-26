@@ -138,3 +138,4 @@ INSERT INTO prestamos (id_socio,id_libro,fecha_prestamo,fecha_devolucion) VALUES
 INSERT INTO prestamos (id_socio,id_libro,fecha_prestamo,fecha_devolucion) VALUES (6,102,SYSDATE,NULL);
 INSERT INTO prestamos (id_socio,id_libro,fecha_prestamo,fecha_devolucion) VALUES (7,107,SYSDATE,NULL);
 INSERT INTO prestamos (id_socio,id_libro,fecha_prestamo,fecha_devolucion) VALUES (8,108,SYSDATE,NULL);
+
