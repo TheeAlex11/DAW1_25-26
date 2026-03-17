@@ -248,3 +248,63 @@ SELECT s.nombre, p.id_prestamo, l.titulo
 FROM prestamos p
 FULL JOIN socios s ON p.id_socio = s.id_socio
 INNER JOIN libros l ON p.id_libro = l.id_libro;
+
+-- Consulta 21 mostrar el numero de prestamos realizados por cada socio (asociacion + subconsulta) Indicando nombre del socio
+SELECT s.nombre, r.total_prestamos
+FROM socios s
+INNER JOIN (
+    SELECT id_socio, COUNT(*) AS total_prestamos
+    FROM prestamos
+    GROUP BY id_socio
+) r ON s.id_socio = r.id_socio;
+
+-- Consulta 22 Mostrar los socios que tienen mas de un prestamo (asociacion + subconsulta)
+SELECT id_socio, COUNT(id_prestamo) AS num_prestamos
+FROM prestamos
+GROUP BY id_socio
+HAVING COUNT(id_prestamo) > 1;
+
+-- Consulta 23 Mostrar el libro (titulo) mas prestado usando subconsulta.
+SELECT titulo, num_veces_prestado
+FROM (
+    SELECT l.titulo, COUNT(p.id_prestamo) AS num_veces_prestado
+    FROM libros l
+    LEFT JOIN prestamos p ON l.id_libro = p.id_libro
+    GROUP BY l.titulo
+    ORDER BY num_veces_prestado DESC
+)
+WHERE ROWNUM = 1;
+
+-- Consulta 24 Mostrar el genero (nombre del genero) con mas prestamos (numero de prestamos)
+SELECT genero, num_veces_prestado
+FROM (
+    SELECT l.genero, COUNT(p.id_prestamo) AS num_veces_prestado
+    FROM libros l
+    LEFT JOIN prestamos p ON l.id_libro = p.id_libro
+    GROUP BY l.genero
+    ORDER BY num_veces_prestado DESC
+)
+WHERE ROWNUM = 1;
+
+-- Consulta 25 Insertar un nuevo prestamo para el socio 3 y el libro 105
+INSERT INTO prestamos (id_socio, id_libro, fecha_prestamo, fecha_devolucion) VALUES (3, 5, SYSDATE, NULL);
+
+-- Consulta 26 Insertar un nuevo socio
+INSERT INTO socios (nombre, email) VALUES ('Laura Garcia', 'laura.garcia@example.com');
+
+-- Consulta 27 Actualizar el stock sumando 1 a los libros que han sido prestados
+UPDATE libros l
+SET stock = stock + 1
+WHERE id_libro IN (SELECT id_libro FROM prestamos);
+
+-- Consulta 28 Actualizar el email de los socios que han realizado prestamos, añadiendo '.org' al final.
+UPDATE socios s
+SET email = email || '.org'
+WHERE s.id_socio IN (SELECT id_socio FROM prestamos);
+
+-- Consulta 29 Marcar como devueltos todos los prestamos de libros del genero 'terror'
+UPDATE prestamos p
+SET fecha_devolucion = SYSDATE
+WHERE id_libro IN (SELECT id_libro FROM libros WHERE genero = 'Terror');
+
+-- Consulta 30 
