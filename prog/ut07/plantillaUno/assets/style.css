@@ -1,0 +1,13 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 1rem;
+}
+
+.vista{
+    display: none;
+}
+
+.activa{
+    display: block;
+}

@@ -1,0 +1,13 @@
+Respetar en el code
+
+Regla de arrakist(Ni una sola gota de agua sobre la superficie de arrakist) en el html solo html, en el css solo css y js solo en js
+
+Para ver exactamente el code CONTROL + U
+
+TAREAS: 
+- Leer primeros 4 de javascript.info
+
+
+Tutoriales: 
+https://es.javascript.info/
+https://developer.mozilla.org/
