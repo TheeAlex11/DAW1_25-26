@@ -1,0 +1,70 @@
+⚠️ ES NECESARIO ESTAR EN EL DIRECTORIO "proyectoJUnit" ⚠️
+
+---------------------- COMPILAR -------------------
+
+# Windows
+jdk-25\bin\javac -d compilados fuentes\calculadoraBasica.java
+
+# Ubuntu 24 - Java en PATH
+javac -d compilados fuentes/calculadoraBasica.java
+
+# Ubuntu 24 - Con JDK interno
+./jdk-25/bin/javac -d compilados fuentes/calculadoraBasica.java
+
+----------------------- EJECUTAR -------------------
+
+# Windows
+jdk-25\bin\java -cp compilados calculadoraBasica
+
+# Ubuntu 24 - Java en PATH
+java -cp compilados calculadoraBasica
+
+# Ubuntu 24 - Con JDK interno
+./jdk-25/bin/java -cp compilados calculadoraBasica
+
+------------------------ TESTS ---------------------
+
+---------------- Compilar Tests -------------------
+
+# Windows - Sin JDK interno
+jdk-25\bin\javac -cp compilados;test\lib\junit-jupiter-api-5.9.2.jar;test\lib\junit-jupiter-engine-5.9.2.jar;test\lib\junit-platform-console-standalone-1.9.2.jar;. test\calculadoraBasicaTest.java -d test\compilados test\calculadoraBasicaTest.java
+
+# Windows - Con JDK interno
+javac -cp compilados;test\lib\junit-jupiter-api-5.9.2.jar;test\lib\junit-jupiter-engine-5.9.2.jar;test\lib\junit-platform-console-standalone-1.9.2.jar;. test\EvaluadorTest.java -d test\compilados test\EvaluadorTest.java
+
+# Ubuntu 24 - Sin JDK interno
+javac -cp compilados:test/lib/junit-jupiter-api-5.9.2.jar:test/lib/junit-jupiter-engine-5.9.2.jar:test/lib/junit-platform-console-standalone-1.9.2.jar:. test/calculadoraBasicaTest.java -d test/compilados
+
+# Ubuntu 24 - Con JDK interno
+./jdk-25/bin/javac -cp compilados:test/lib/junit-jupiter-api-5.9.2.jar:test/lib/junit-jupiter-engine-5.9.2.jar:test/lib/junit-platform-console-standalone-1.9.2.jar:. test/calculadoraBasicaTest.java -d test/compilados
+
+---------------- Ejecutar Tests ---------------------
+
+# Windows
+jdk-25\bin\java -jar test\lib\junit-platform-console-standalone-1.9.2.jar -cp compilados;test\compilados --scan-class-path
+
+# Ubuntu 24 - Java en PATH
+java -jar test/lib/junit-platform-console-standalone-1.9.2.jar -cp compilados:test/compilados --scan-class-path
+
+# Ubuntu 24 - Con JDK interno
+./jdk-25/bin/java -jar test/lib/junit-platform-console-standalone-1.9.2.jar -cp compilados:test/compilados --scan-class-path
+
+
+
+
+PARA EXAMEN
+
+Compilar fuentes
+javac -d compilados fuentes\Evaluador.java
+
+Ejecutar fuentes
+java -cp compilados Evaluador.java
+
+
+Compilar Tests
+javac -cp compilados;test\lib\junit-jupiter-api-5.9.2.jar;test\lib\junit-jupiter-engine-5.9.2.jar;test\lib\junit-platform-console-standalone-1.9.2.jar;. test\EvaluadorTest.java -d test\compilados test\EvaluadorTest.java fuentes\*.csv
+
+javac -d compilados -cp compilados\json-20251224.jar fuentes\*.java
+
+
+java -jar test\lib\junit-platform-console-standalone-1.9.2.jar -cp compilados;test\compilados --scan-class-path
