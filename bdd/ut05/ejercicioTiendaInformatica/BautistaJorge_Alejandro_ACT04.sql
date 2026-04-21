@@ -1,8 +1,5 @@
 SET SERVEROUTPUT ON;
 
--- CFGS DAW - BASES DE DATOS | UT06 ACT04
--- Alumno: Jorge Alejandro Bautista | Curso 25-26
-
 -- ============================================================
 -- EJ1: IF - aplicar_descuento(p_cod)
 -- precio <= 50 -> -5% | precio > 50 -> -2%
